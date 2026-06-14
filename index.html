@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignat Mădălin - CV profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Manrope',system-ui,sans-serif;
+      color:#f7fbff;
+      background:
+        radial-gradient(circle at top left, rgba(79,124,255,.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(127,182,255,.12), transparent 24%),
+        linear-gradient(180deg, #09101c 0%, #0b1220 48%, #08111d 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(11,18,32,.72);
+      border-bottom:1px solid rgba(148,163,184,.12);
+    }
+    .topbar-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:16px 0;
+    }
+    .brand{
+      font:700 .92rem "IBM Plex Mono",monospace;
+      letter-spacing:2px;text-transform:uppercase;color:#bfe0ff;
+    }
+    .nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    .nav a{
+      padding:8px 12px;border:1px solid rgba(148,163,184,.16);
+      border-radius:999px;background:rgba(255,255,255,.03);
+      font-size:.88rem;color:#e8eef8;
+    }
+    .hero{padding:56px 0 24px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;align-items:stretch;
+    }
+    .card{
+      border:1px solid rgba(148,163,184,.16);
+      background:linear-gradient(180deg, rgba(15,23,42,.88), rgba(17,27,48,.96));
+      border-radius:28px;
+      box-shadow:0 24px 70px rgba(2,8,23,.26);
+    }
+    .hero-main{padding:34px}
+    .eyebrow{
+      font:600 .72rem "IBM Plex Mono",monospace;
+      letter-spacing:3px;text-transform:uppercase;
+      color:#7fb6ff;margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2.3rem,5vw,4.5rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+    }
+    .lead{margin:0;color:#cfd8e6;line-height:1.75;max-width:62ch}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:12px 18px;border-radius:999px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.04);font-weight:700;
+    }
+    .btn.primary{background:linear-gradient(135deg,#4f7cff,#7fb6ff);color:#fff;border-color:transparent}
+    .hero-side{padding:22px;display:grid;gap:14px}
+    .stat{
+      padding:18px 18px 16px;border-radius:22px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03);
+    }
+    .stat .k{font:600 .68rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#8e9ab0;margin-bottom:8px}
+    .stat .v{font-size:1.04rem;line-height:1.45;font-weight:700}
+    .section{padding:22px 0 0}
+    .section-head{margin-bottom:16px}
+    .section-head .k{
+      font:600 .72rem "IBM Plex Mono",monospace;letter-spacing:3px;text-transform:uppercase;color:#7fb6ff;
+      margin-bottom:8px;
+    }
+    .section-head h2{margin:0;font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.04em}
+    .section-head p{margin:10px 0 0;color:#cfd8e6;line-height:1.7;max-width:74ch}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+    .about-copy,.panel{padding:24px}
+    .about-copy p{color:#cfd8e6;line-height:1.85;margin:0 0 14px}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .pill{
+      padding:8px 12px;border-radius:999px;background:rgba(127,182,255,.08);
+      border:1px solid rgba(127,182,255,.18);font:600 .68rem "IBM Plex Mono",monospace;
+      letter-spacing:1.6px;text-transform:uppercase;
+    }
+    .photo-card{padding:16px}
+    .photo-frame{
+      aspect-ratio:3/4;border-radius:24px;overflow:hidden;position:relative;
+      border:1px solid rgba(148,163,184,.2);background:linear-gradient(180deg, rgba(127,182,255,.12), rgba(11,18,32,.9));
+    }
+    .photo-frame img{
+      position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);
+      object-fit:cover;border-radius:18px;
+    }
+    .photo-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .photo-meta .m{
+      padding:12px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(148,163,184,.16);text-align:center
+    }
+    .photo-meta .m .k{font:600 .62rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#8e9ab0;margin-bottom:4px}
+    .photo-meta .m .v{font-weight:700}
+    .skills-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+    }
+    .skill{
+      padding:18px;border-radius:22px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03);
+    }
+    .skill h3{margin:10px 0 8px;font-size:1rem}
+    .skill p{margin:0;color:#cfd8e6;line-height:1.65;font-size:.92rem}
+    .skill .ico{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+      background:rgba(127,182,255,.12);color:#7fb6ff
+    }
+    .skills-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .tag{
+      padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03);font:500 .72rem "IBM Plex Mono",monospace;color:#d8e3f1
+    }
+    .experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .exp-card{padding:22px;border-radius:24px;border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,.03)}
+    .exp-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px}
+    .exp-head h3{margin:0;font-size:1.03rem}
+    .exp-head .date{font:600 .68rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#7fb6ff}
+    .exp-card ul{margin:0;padding-left:18px;color:#cfd8e6;line-height:1.75}
+    .delta-layout{display:grid;grid-template-columns:1fr .95fr;gap:16px;align-items:start;margin-bottom:16px}
+    .delta-copy{padding:24px}
+    .delta-copy .delta-lead{margin:0 0 18px;color:#cfd8e6;line-height:1.85;max-width:70ch}
+    .delta-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
+    .delta-summary .mini{
+      padding:14px;border-radius:18px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03)
+    }
+    .delta-summary .mini .k{
+      font:600 .62rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#8e9ab0;margin-bottom:6px
+    }
+    .delta-summary .mini .v{font-weight:700;line-height:1.45}
+    .delta-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+    .delta-block{
+      padding:18px;border-radius:22px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03)
+    }
+    .delta-block h3{
+      margin:0 0 10px;font-size:1rem;letter-spacing:-.02em
+    }
+    .delta-list{margin:0;padding-left:18px;color:#cfd8e6;line-height:1.75}
+    .delta-list li+li{margin-top:8px}
+    .delta-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .delta-tags .tag{background:rgba(127,182,255,.08)}
+    .web-layout{display:grid;grid-template-columns:1fr .95fr;gap:16px;align-items:start;margin-bottom:16px}
+    .web-copy{padding:24px}
+    .web-copy .eyebrow-line{
+      font:600 .68rem "IBM Plex Mono",monospace;letter-spacing:3px;text-transform:uppercase;color:#7fb6ff;margin-bottom:12px
+    }
+    .web-copy .web-lead{
+      margin:0 0 18px;color:#cfd8e6;line-height:1.85;max-width:72ch
+    }
+    .web-copy .web-objective{
+      margin:18px 0 0;padding:16px 18px;border-radius:18px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03);color:#dce6f3;line-height:1.75
+    }
+    .web-copy .web-objective strong{display:block;margin-bottom:6px;color:#fff}
+    .web-panel{padding:24px}
+    .web-panel .mini-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .web-mini{
+      padding:16px 16px 15px;border-radius:18px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03)
+    }
+    .web-mini .k{
+      font:600 .62rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#8e9ab0;margin-bottom:6px
+    }
+    .web-mini .v{font-weight:700;line-height:1.55;color:#f4f8ff}
+    .web-pill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .web-block{
+      padding:18px;border-radius:22px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03)
+    }
+    .web-block h3{margin:0 0 10px;font-size:1rem;letter-spacing:-.02em}
+    .web-block ul{margin:0;padding-left:18px;color:#cfd8e6;line-height:1.75}
+    .web-block li+li{margin-top:8px}
+    .web-values{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .web-values .tag{background:rgba(127,182,255,.08)}
+    .category{padding:0 0 18px}
+    .category .intro{
+      color:#cfd8e6;line-height:1.75;max-width:76ch;margin:0 0 16px
+    }
+    .image-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    }
+    #web .image-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    #delta-force .image-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+    .image-slot{
+      position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;
+      border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,.03);
+      box-shadow:0 14px 32px rgba(2,8,23,.18);
+    }
+    #web .image-slot{
+      aspect-ratio:16/9;
+      background:linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,18,32,.98));
+    }
+    #delta-force .image-slot{
+      aspect-ratio:16/10;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(15,23,42,.95), rgba(11,18,32,.98));
+    }
+    .image-slot img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    }
+    #web .image-slot img{
+      object-fit:contain;
+      padding:12px;
+      background:
+        radial-gradient(circle at top, rgba(127,182,255,.14), transparent 44%),
+        linear-gradient(180deg, rgba(15,23,42,.95), rgba(11,18,32,.98));
+      transform:none;
+      filter:none;
+    }
+    #delta-force .image-slot img{
+      object-position:center center;
+      transform:scale(1.01);
+      filter:saturate(1.06) contrast(1.04);
+    }
+    #delta-force .image-slot::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:38px;
+      z-index:2;
+      background:
+        radial-gradient(circle at 18px 19px, #ff5f57 0 5px, transparent 6px),
+        radial-gradient(circle at 36px 19px, #febc2e 0 5px, transparent 6px),
+        radial-gradient(circle at 54px 19px, #28c840 0 5px, transparent 6px),
+        linear-gradient(180deg, rgba(8,12,22,.86), rgba(8,12,22,.48));
+      border-bottom:1px solid rgba(148,163,184,.12);
+      pointer-events:none;
+    }
+    #delta-force .image-slot::after{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:0;
+      height:52px;
+      z-index:1;
+      background:linear-gradient(180deg, transparent, rgba(8,12,22,.84));
+      pointer-events:none;
+    }
+    .slot-placeholder{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;
+      background:
+        radial-gradient(circle at top, rgba(127,182,255,.14), transparent 44%),
+        linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,18,32,.98));
+      color:#d8e3f1;font-size:.85rem;line-height:1.5
+    }
+    .slot-label{
+      position:absolute;left:10px;right:10px;bottom:10px;padding:8px 10px;border-radius:12px;
+      background:rgba(11,18,32,.78);border:1px solid rgba(127,182,255,.16);
+      backdrop-filter:blur(8px);font:600 .72rem "IBM Plex Mono",monospace;letter-spacing:1px;text-transform:uppercase
+    }
+    #delta-force .slot-label{
+      left:14px;right:auto;bottom:14px;
+      font-size:.78rem;
+      padding:10px 12px;
+      max-width:calc(100% - 28px);
+    }
+    .footer-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .footer-nav a{
+      padding:10px 14px;border-radius:999px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03);font-weight:700
+    }
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center}
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-item{
+      display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;
+      border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,.03)
+    }
+    .contact-item .i{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(127,182,255,.12);color:#7fb6ff;flex:0 0 auto
+    }
+    .contact-item .k{font:600 .64rem "IBM Plex Mono",monospace;letter-spacing:2px;text-transform:uppercase;color:#8e9ab0}
+    .contact-item .v{font-weight:700}
+    .availability{
+      display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 14px;border-radius:999px;
+      background:rgba(0,212,100,.08);border:1px solid rgba(0,212,100,.18);color:#9be7b4;font-size:.88rem
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:#00d464}
+    .center-card{
+      height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px
+    }
+    .center-card .bubble{
+      max-width:280px;padding:28px;border-radius:28px;border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.03)
+    }
+    .center-card .bubble .icon{font-size:2.5rem;margin-bottom:10px;color:#7fb6ff}
+    .center-card .bubble .title{font-size:1.05rem;font-weight:800;margin-bottom:8px}
+    .center-card .bubble .txt{color:#cfd8e6;line-height:1.7}
+    .spacer{height:18px}
+    @media (max-width: 960px){
+      .hero-grid,.about-grid,.experience-grid,.contact-grid,.delta-layout,.delta-columns,.web-layout,.web-pill-grid{grid-template-columns:1fr}
+      .skills-grid,.image-grid{grid-template-columns:repeat(2,1fr)}
+      #web .image-grid,#delta-force .image-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #delta-force .image-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .nav{justify-content:flex-start}
+    }
+    @media (max-width: 560px){
+      .container{width:min(1180px,calc(100% - 28px))}
+      .skills-grid,.image-grid,.delta-summary,#web .image-grid,#delta-force .image-grid{grid-template-columns:1fr}
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      .hero-main,.panel,.about-copy{padding:22px}
+      .hero{padding-top:24px}
+      .delta-copy{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Ignat Mădălin</div>
+      <nav class="nav">
+        <a href="#despre">Despre mine</a>
+        <a href="#skills">Competențe</a>
+        <a href="#delta-force">Delta Force</a>
+        <a href="#web">Web</a>
+        <a href="#educatie">Educație</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main card">
+          <div class="eyebrow">CV profesional · Tech / Robotics / AI</div>
+          <h1>Ignat Mădălin</h1>
+          <p class="lead">Profesionist orientat spre rezultate, cu experiență în robotică, dezvoltare web, electronică și proiecte software. Site-ul este gândit simplu și elegant, ca o prezentare curată pentru recrutare.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#delta-force"><i class="fas fa-briefcase"></i>Vezi proiecte</a>
+            <a class="btn" href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+          </div>
+        </div>
+        <aside class="hero-side card">
+          <div class="stat"><div class="k">Direcții principale</div><div class="v">Robotică, web, electronică și software</div></div>
+          <div class="stat"><div class="k">Locație</div><div class="v">Arad, RO</div></div>
+          <div class="stat"><div class="k">Limbi</div><div class="v">Română nativ, engleză avansat</div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="despre">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">01. Despre mine</div>
+          <h2>Profil profesional &amp; expertiză tehnică</h2>
+          <p>Am organizat site-ul ca un CV modern, fără animații de scroll și fără layout-uri fixe. Totul este în stil normal, clar și ușor de citit, cu secțiuni mari pentru conținut real.</p>
+        </div>
+        <div class="about-grid">
+          <div class="card about-copy">
+            <p>Lucrez bine atât la partea de hardware, cât și la integrarea software, cu focus pe soluții practice și livrare clară. Mă interesează roluri în care pot contribui tehnic, dar și organizat.</p>
+            <p>Am experiență în contexte tehnice diverse, inclusiv echipe de competiție și proiecte personale, unde am exersat problem-solving, colaborare și adaptare rapidă.</p>
+            <div class="pill-row">
+              <span class="pill">Robotică</span>
+              <span class="pill">Development</span>
+              <span class="pill">AI &amp; Automation</span>
+              <span class="pill">Teamwork</span>
+            </div>
+          </div>
+          <div class="card photo-card">
+            <div class="photo-frame">
+              <img src="./poza%20cv.jpeg" alt="Poza CV a lui Ignat Mădălin">
+            </div>
+            <div class="photo-meta">
+              <div class="m"><div class="k">Locație</div><div class="v">Arad, RO</div></div>
+              <div class="m"><div class="k">Focus</div><div class="v">Tech / Robotics</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">02. Competențe</div>
+          <h2>Stack tehnic &amp; abilități</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill card"><div class="ico"><i class="fas fa-code"></i></div><h3>Frontend</h3><p>Interfețe curate, responsive și ușor de folosit.</p><div class="skills-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">React</span><span class="tag">TypeScript</span></div></article>
+          <article class="skill card"><div class="ico"><i class="fas fa-server"></i></div><h3>Backend</h3><p>API-uri, logică de aplicație și integrare de servicii.</p><div class="skills-list"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JWT</span></div></article>
+          <article class="skill card"><div class="ico"><i class="fas fa-robot"></i></div><h3>Robotică &amp; HW</h3><p>CAD, CNC, imprimare 3D și prototipare rapidă.</p><div class="skills-list"><span class="tag">C++</span><span class="tag">Fusion 360</span><span class="tag">CNC</span><span class="tag">3D Print</span></div></article>
+          <article class="skill card"><div class="ico"><i class="fas fa-shield-alt"></i></div><h3>IT &amp; Security</h3><p>Linux, rețelistică și bazele securității practice.</p><div class="skills-list"><span class="tag">Linux</span><span class="tag">Networking</span><span class="tag">Pentest</span><span class="tag">VPN</span></div></article>
+          <article class="skill card"><div class="ico"><i class="fas fa-brain"></i></div><h3>AI &amp; Automation</h3><p>Prompting, workflow-uri și automatizări utile.</p><div class="skills-list"><span class="tag">GPT</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Agents</span></div></article>
+          <article class="skill card"><div class="ico"><i class="fas fa-chart-line"></i></div><h3>Web &amp; Marketing</h3><p>Site-uri, SEO și proiecte de prezentare bine structurate.</p><div class="skills-list"><span class="tag">SEO</span><span class="tag">Analytics</span><span class="tag">Landing Pages</span><span class="tag">UI</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experienta">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">03. Experiență</div>
+          <h2>Activitate &amp; realizări</h2>
+        </div>
+        <div class="experience-grid">
+          <article class="exp-card card">
+            <div class="exp-head"><h3>Delta Force</h3><div class="date">Prezent</div></div>
+            <ul>
+              <li>Proiectare și asamblare de roboți pentru competiții.</li>
+              <li>Prototipare rapidă cu CNC și imprimare 3D.</li>
+              <li>Integrare hardware-software și testare în teren.</li>
+            </ul>
+          </article>
+          <article class="exp-card card">
+            <div class="exp-head"><h3>Proiecte personale</h3><div class="date">Continuu</div></div>
+            <ul>
+              <li>Aplicații web și tool-uri software.</li>
+              <li>Proiecte de electronică și automatizare.</li>
+              <li>Documentare, iterare și îmbunătățire constantă.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="delta-force">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">04. Delta Force</div>
+          <h2>Echipa de robotică</h2>
+          <p>Rol de leadership tehnic, coordonare hardware și integrare mecanică-electronică în robotică de competiție. Mai jos sunt organizate clar responsabilitățile, rezultatele și galeria de proiecte.</p>
+        </div>
+        <div class="delta-layout">
+          <article class="card delta-copy">
+            <div class="pill-row" style="margin-top:0">
+              <span class="pill">Hardware Lead</span>
+              <span class="pill">Robotică</span>
+              <span class="pill">Competiții</span>
+              <span class="pill">Team Coordination</span>
+            </div>
+            <p class="delta-lead">În cadrul Delta Force Robotics am coordonat partea de hardware a echipei, de la proiectare și integrare până la testare și optimizare. Accentul a fost pe decizii tehnice clare, colaborare eficientă și livrare într-un ritm competitiv.</p>
+            <div class="delta-summary">
+              <div class="mini"><div class="k">Rol</div><div class="v">Hardware Division Leader</div></div>
+              <div class="mini"><div class="k">Mediu</div><div class="v">Robotică de competiție</div></div>
+              <div class="mini"><div class="k">Focus</div><div class="v">Mecanică, electronică, prototipare</div></div>
+              <div class="mini"><div class="k">Rezultat</div><div class="v">Execuție stabilă sub presiune</div></div>
+            </div>
+            <div class="delta-columns">
+              <div class="delta-block">
+                <h3>Responsabilități</h3>
+                <ul class="delta-list">
+                  <li>Coordonarea diviziei hardware și a procesului de dezvoltare tehnică.</li>
+                  <li>Proiectare CAD, dezvoltare mecanică și prototipare rapidă.</li>
+                  <li>Integrarea sistemelor electronice și pneumatice.</li>
+                  <li>Testare, optimizare și mentenanță hardware.</li>
+                </ul>
+              </div>
+              <div class="delta-block">
+                <h3>Rezultate &amp; competențe</h3>
+                <ul class="delta-list">
+                  <li>Chicago Robotics Invitational FTC 2024 - Finalist Alliance.</li>
+                  <li>Sunset Showdown FRC 2025 - Semifinalist.</li>
+                  <li>FIRST Robotics Competition World Championship 2026 - Semifinalist.</li>
+                </ul>
+                <div class="delta-tags">
+                  <span class="tag">Leadership tehnic</span>
+                  <span class="tag">CAD Engineering</span>
+                  <span class="tag">Electronics Integration</span>
+                  <span class="tag">Rapid Prototyping</span>
+                  <span class="tag">Project Management</span>
+                  <span class="tag">Competitive Robotics</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <div class="card panel">
+            <div class="category">
+              <div class="pill-row" style="margin-top:0">
+                <span class="pill">Competiții</span>
+                <span class="pill">CNC</span>
+                <span class="pill">3D Print</span>
+                <span class="pill">Prototipare</span>
+              </div>
+              <div class="spacer"></div>
+              <p class="intro">Loc pentru imagini mari, bine alese, și o descriere scurtă pentru fiecare set de poze. Fără efecte excesive, doar prezentare clară.</p>
+              <div class="image-grid">
+                <div class="image-slot"><img src="./cri_robot.png" alt="Delta Force - CRI robot"><div class="slot-label">CRI Robot</div></div>
+                <div class="image-slot"><img src="./robot_nationala.png" alt="Delta Force - robot națională"><div class="slot-label">Robot Națională</div></div>
+                <div class="image-slot"><img src="./robot_cad_natio.png" alt="Delta Force - robot CAD națională"><div class="slot-label">Robot CAD</div></div>
+                <div class="image-slot"><img src="./cad_natio_ftc.png" alt="Delta Force - CAD FTC"><div class="slot-label">CAD FTC</div></div>
+                <div class="image-slot"><img src="./cnc.png" alt="Delta Force - CNC"><div class="slot-label">CNC</div></div>
+                <div class="image-slot"><img src="./lucru_turret.png" alt="Delta Force - lucru turret"><div class="slot-label">Turret Work</div></div>
+                <div class="image-slot"><img src="./cabluri_mondiala1.png" alt="Delta Force - cabluri mondială 1"><div class="slot-label">Cable Management</div></div>
+                <div class="image-slot"><img src="./cabluri_mondiala2.png" alt="Delta Force - cabluri mondială 2"><div class="slot-label">Cable Management</div></div>
+                <div class="image-slot"><img src="./robot_mondiala_art.png" alt="Delta Force - robot mondială"><div class="slot-label">Robot Mondială</div></div>
+                <div class="image-slot"><img src="./sunset_cabvle.png" alt="Delta Force - sunset cabluri"><div class="slot-label">Sunset Showdown</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="web">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">05. Web Development</div>
+          <h2>Building Modern Digital Experiences</h2>
+          <p>Sunt specializat în dezvoltarea de aplicații web moderne, cu accent pe performanță, experiența utilizatorului și arhitecturi scalabile. Lucrez atât pe frontend, cât și pe backend, dezvoltând soluții complete adaptate cerințelor proiectului.</p>
+        </div>
+        <div class="card panel">
+          <div class="web-layout">
+            <article class="card web-copy">
+              <div class="eyebrow-line">Profile</div>
+              <p class="web-lead">Îmi place să transform concepte și idei în produse digitale funcționale, utilizând tehnologii moderne și bune practici de dezvoltare software.</p>
+              <div class="web-objective">
+                <strong>Obiectiv</strong>
+                Construirea de aplicații și platforme care oferă valoare reală utilizatorilor, combinând designul modern, performanța tehnică și experiența intuitivă de utilizare.
+              </div>
+            </article>
+            <aside class="card web-panel">
+              <div class="mini-grid">
+                <div class="web-mini">
+                  <div class="k">Frontend Development</div>
+                  <div class="v">React, JavaScript / TypeScript, HTML5, CSS3 / Tailwind CSS, Responsive Design și UI / UX Implementation.</div>
+                </div>
+                <div class="web-mini">
+                  <div class="k">Backend Development</div>
+                  <div class="v">Node.js, REST APIs, Database Design, Authentication Systems și Server-side Development.</div>
+                </div>
+                <div class="web-mini">
+                  <div class="k">Development Workflow</div>
+                  <div class="v">Git &amp; GitHub, Agile Development, CI / CD Fundamentals, Performance Optimization, Deployment &amp; Maintenance.</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="web-pill-grid">
+            <article class="web-block">
+              <h3>Ce mă definește</h3>
+              <ul>
+                <li>Atenție la detalii</li>
+                <li>Cod curat și mentenabil</li>
+                <li>Adaptare rapidă la tehnologii noi</li>
+                <li>Gândire orientată spre soluții</li>
+                <li>Comunicare eficientă în echipă</li>
+              </ul>
+            </article>
+            <article class="web-block">
+              <h3>Domenii de expertiză</h3>
+              <ul>
+                <li>Frontend Development</li>
+                <li>Backend Development</li>
+                <li>UI/UX Implementation</li>
+                <li>API Integration</li>
+                <li>Performance &amp; Deployment</li>
+              </ul>
+            </article>
+            <article class="web-block">
+              <h3>Stack și workflow</h3>
+              <div class="web-values">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Git</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </article>
+          </div>
+          <div class="spacer"></div>
+          <div class="image-grid">
+            <div class="image-slot"><img src="./project_asisto.png" alt="Proiect web personal - Asisto"><div class="slot-label">Asisto</div></div>
+            <div class="image-slot"><img src="./mathevolution.png" alt="Proiect web personal - Mathevolution"><div class="slot-label">Mathevolution</div></div>
+            <div class="image-slot"><img src="./backtracking.png" alt="Proiect web personal - Backtracking"><div class="slot-label">Backtracking</div></div>
+            <div class="image-slot"><img src="./infinitynest.ro.png" alt="Proiect web personal - Infinity Nest"><div class="slot-label">Infinity Nest</div></div>
+            <div class="image-slot"><img src="./madmedia.png" alt="Proiect web personal - Mad Media"><div class="slot-label">Mad Media</div></div>
+            <div class="image-slot"><img src="./nosslifestyle.png" alt="Proiect web personal - Noss Lifestyle"><div class="slot-label">Noss Lifestyle</div></div>
+            <div class="image-slot"><img src="./ankascan.png" alt="Proiect web personal - Anka Scan"><div class="slot-label">Anka Scan</div></div>
+            <div class="image-slot"><img src="./lexus_publicitate.png" alt="Proiect web personal - Lexus Publicitate"><div class="slot-label">Lexus Publicitate</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="educatie">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">06. Educație &amp; certificări</div>
+          <h2>Formare &amp; dezvoltare</h2>
+        </div>
+        <div class="experience-grid">
+          <article class="exp-card card">
+            <div class="exp-head"><h3>Full-Stack Development</h3><div class="date">Online</div></div>
+            <p>React, Node.js, Python, deployment și DevOps basics.</p>
+          </article>
+          <article class="exp-card card">
+            <div class="exp-head"><h3>Robotică &amp; Automatizare</h3><div class="date">Specializare</div></div>
+            <p>Robotică industrială, microcontrolere și automatizare de procese.</p>
+          </article>
+          <article class="exp-card card">
+            <div class="exp-head"><h3>Cybersecurity &amp; Ethical Hacking</h3><div class="date">Formare</div></div>
+            <p>Pen testing, securitate rețele și identificare vulnerabilități.</p>
+          </article>
+          <article class="exp-card card">
+            <div class="exp-head"><h3>AI &amp; Machine Learning</h3><div class="date">Advanced</div></div>
+            <p>Claude, GPT, LangChain, RAG, AI Agents și prompt engineering.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="k">07. Contact</div>
+          <h2>Hai să lucrăm împreună</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="card panel">
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:email@example.com">
+                <div class="i"><i class="fas fa-envelope"></i></div>
+                <div><div class="k">Email</div><div class="v">madalinignat598@gmail.com</div></div>
+              </a>
+              <a class="contact-item" href="tel:+40000000000">
+                <div class="i"><i class="fas fa-phone"></i></div>
+                <div><div class="k">Telefon</div><div class="v">+40 752 077 891</div></div>
+              </a>
+              <a class="contact-item" href="https://www.linkedin.com/in/ignat-m%C4%83d%C4%83lin-35a267413/" target="_blank" rel="noopener noreferrer">
+                <div class="i"><i class="fab fa-linkedin"></i></div>
+                <div><div class="k">LinkedIn</div><div class="v">linkedin.com/in/ignat-mădălin-35a267413</div></div>
+              </a>
+              <a class="contact-item" href="https://github.com/Madalinnnnn">
+                <div class="i"><i class="fab fa-github"></i></div>
+                <div><div class="k">GitHub</div><div class="v">github.com/Madalinnnnn</div></div>
+              </a>
+            </div>
+            <div class="availability"><span class="dot"></span>Disponibil pentru oportunități tehnice</div>
+          </div>
+          <div class="card center-card">
+            <div class="bubble">
+              <div class="icon"><i class="far fa-paper-plane"></i></div>
+              <div class="title">Pregătit să colaborăm?</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <a href="#despre">Sus</a>
+          <a href="#delta-force">Delta Force</a>
+          <a href="#web">Web</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
